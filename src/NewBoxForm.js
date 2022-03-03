@@ -1,14 +1,16 @@
 import { useState } from "react";
 
-/** NewBoxForm
+/** NewBoxForm: renders the form for box creation
  *
- * Props: {addBox}
+ * Props: 
+ * -addBox: a fn passed from BoxList that adds a box obj
+ *          to the state array (boxes)
  * 
  * State:
  * -formData: obj that will contain 
  *  {height, width, background color} from form inputs 
  * 
- * App -> BoxList -> Box and NewBoxForm
+ * App -> BoxList -> NewBoxForm
  */
 
 function NewBoxForm({addBox}){

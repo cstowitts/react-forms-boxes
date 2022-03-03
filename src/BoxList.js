@@ -3,8 +3,7 @@ import { v4 as uuid } from "uuid";
 import Box from "./Box.js"
 import NewBoxForm from "./NewBoxForm.js";
 
-
-/** BoxList
+/** BoxList: manages boxes, add and remove box fns, state live here
  *
  * Props: none
  * 
@@ -15,7 +14,7 @@ import NewBoxForm from "./NewBoxForm.js";
         backgroundColor
     }, ...];
  * 
- * App -> BoxList -> Box and NewBoxForm
+ * App -> BoxList -> NewBoxForm
  */
 
 function BoxList() {
@@ -29,7 +28,6 @@ function BoxList() {
 
     /** remove a box from the BoxList */
     function removeBox(id){
-
         setBoxes(boxes => boxes.filter(b => b.id !== id));
     }
 

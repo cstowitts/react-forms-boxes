@@ -1,13 +1,15 @@
 
-/** Box
+/** Box: renders a box and its removal button
  *
  * Props:
- *  
+ * -box: a box obj from the state array (boxes)
+ * -removeBox: a fn that removes the specific box from the 
+ *             boxes state array
  * 
  * State:
+ * -none
  * 
- * 
- * App -> BoxList -> Box and NewBoxForm
+ * App -> BoxList -> Box 
  */
 
  function Box({ box, removeBox}){  
