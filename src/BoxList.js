@@ -18,13 +18,16 @@ import NewBoxForm from "./NewBoxForm.js";
  */
 
 function BoxList() {
-    const [boxes, setBoxes ] = useState([]);
+    const [ boxes, setBoxes ] = useState([]);
 
     /** add a new box to the BoxList */
+    //box could be boxRawData
+    //newBox could be boxWithId, differentiate between these boxes
     function addBox(box){
         let newBox = { ...box, id: uuid() };
         setBoxes(boxes => [...boxes, newBox]);
     }
+    //good not to call box 'formData' 
 
     /** remove a box from the BoxList */
     function removeBox(id){
@@ -35,7 +38,8 @@ function BoxList() {
         <div>
             <NewBoxForm addBox={addBox} />
             {boxes.map(box => 
-            <Box key={box.id} box={box} removeBox={removeBox} />)}
+                <Box key={box.id} box={box} removeBox={removeBox} />
+            )}
         </div>
     );
 

@@ -2,7 +2,13 @@
 /** Box: renders a box and its removal button
  *
  * Props:
- * -box: a box obj from the state array (boxes)
+ * -box: a box obj from the state array (boxes) =>
+ *      {
+        height,
+        width,
+        backgroundColor
+        }
+ * TODO: add box obj example
  * -removeBox: a fn that removes the specific box from the 
  *             boxes state array
  * 
