@@ -1,7 +1,8 @@
+import { useState } from "react";
 
-/** BoxList
+/** NewBoxForm
  *
- * Props: none
+ * Props: {addBox}
  * 
  * State:
  * -formData: obj that will contain 
@@ -11,12 +12,13 @@
  */
 
 function NewBoxForm({addBox}){
-
-    const [formData, setFormData] = useState({
+    const initialData = {
         height: "",
         width: "",
         backgroundColor: ""
-    });
+    };
+
+    const [formData, setFormData] = useState(initialData);
 
     function handleChange(evt){
         const { name, value } = evt.target; 
@@ -26,6 +28,46 @@ function NewBoxForm({addBox}){
         }));      
     }
 
+    function handleSubmit(evt) {
+        evt.preventDefault();
+        addBox(formData);
+        setFormData(initialData);
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="height">Height:</label>
+          <input
+            id="height"
+            name="height"
+            value={formData.height}
+            onChange={handleChange}
+          />
+    
+          <label htmlFor="width">Width:</label>
+          <input
+            type="width"
+            id="width"
+            name="width"
+            value={formData.width}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="backgroundColor">BackgroundColor:</label>
+          <input
+            type="backgroundColor"
+            id="backgroundColor"
+            name="backgroundColor"
+            value={formData.backgroundColor}
+            onChange={handleChange}
+          />        
+    
+          <button>Add a new box!</button>
+        </form>
+      );
+
 }
 
 //if a component handles evt, should know what the state is
+
+export default NewBoxForm;

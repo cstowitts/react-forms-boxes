@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 
 /** BoxList
@@ -6,13 +7,20 @@ import { useState } from "react";
  * Props: none
  * 
  * State:
- * -formData: obj that will contain 
- *  {height, width, background color} from form inputs 
+ * -boxes: an array of boxes => [{
+        height: "",
+        width: "",
+        backgroundColor: ""
+    }];
  * 
  * App -> BoxList -> Box and NewBoxForm
  */
 
 function BoxList() {
+    const [boxes, setBoxes ] = useState([]);
+
+    function addBox()
+
     
 
 
