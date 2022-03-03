@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import Box from "./Box.js"
+import NewBoxForm from "./NewBoxForm.js";
 
 
 /** BoxList
@@ -27,17 +28,18 @@ function BoxList() {
     }
 
     /** remove a box from the BoxList */
-    function removeBox(box){
+    function removeBox(id){
 
-        setBoxes(boxes => boxes.filter(b => b.id !== box.id))
-        
+        setBoxes(boxes => boxes.filter(b => b.id !== id));
     }
 
-
-
-
-
-
+    return (
+        <div>
+            <NewBoxForm addBox={addBox} />
+            {boxes.map(box => 
+            <Box key={box.id} box={box} removeBox={removeBox} />)}
+        </div>
+    );
 
 }
 

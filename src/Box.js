@@ -1,9 +1,8 @@
 
-
 /** Box
  *
  * Props:
- * 
+ *  
  * 
  * State:
  * 
@@ -11,26 +10,29 @@
  * App -> BoxList -> Box and NewBoxForm
  */
 
- function Box({ boxes }){  
-
+ function Box({ box, removeBox}){  
+   function remove() {
+        removeBox(box.id);
+   }
     
    return (
-       <div className="Box-container">
-         {boxes.map(box => (
+       <div className="Box-container">    
              <div className="Box-box" 
-                key={box.id} 
+                
                 style={
-                    {height:box.height, 
-                    width:box.width, 
-                    backgroundColor:box.backgroundColor}
+                    {height:`${box.height}px`, 
+                    width:`${box.width}px`, 
+                    backgroundColor:`${box.backgroundColor}`}
                 }
             >
-            <button className="Box-remove-btn" onClick={removeBox}>
-                X
-            </button>
 
             </div>
-         ))}
+            <button className="Box-remove-btn" onClick={remove}>
+                X
+            </button>
+         
        </div>
    )
 }
+
+export default Box;
